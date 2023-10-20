@@ -6,6 +6,9 @@ Data is passed between the executible and the package using XML and then parsed 
 
 # Installation
 
+Download the release from github
+pip install pyuniformancegrabber-0.1.tar.gz
+
 # Dependencies
 
 * Pandas
