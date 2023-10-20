@@ -1,7 +1,7 @@
 # pyuniformancegrabber
 A Package for python that communicates with a Honeywell PHD Server via a seperate 32-bit executible written in .NETFramework.
 
-A 32-bit executible is used rather than directly using PHDAPINET.dll to allow avoid issues when using a 64-bit version of R and accessing a 32-bit DLL.
+A 32-bit executible is used rather than directly using PHDAPINET.dll to allow avoid issues when using a 64-bit version of python and accessing a 32-bit DLL.
 Data is passed between the executible and the package using XML and then parsed into a dataframe.
 
 # Installation
@@ -20,7 +20,7 @@ pip install pyuniformancegrabber-0.1.tar.gz
 from pyuniformancegrabber import uniformance
 #Uniformance can also be provided hostname, port, username, password
 #By default port=3000, username='', password=''
-a = uniformance("MALSHW1")
+a = uniformance(hostname)
 #tags can be added either individually or as a list
 a.add_tag('A.RL_AI7361.BATCH')
 a.add_tag('A.RL_AI7361.GRADE')
