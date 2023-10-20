@@ -193,6 +193,7 @@ class uniformance():
     def get_results(self):
         dataframe_list = []
         for tags in self._Taglist:
+            datain = io.StringIO()
             result = subprocess.run([self.exe_path, "getdata",
                                     "-h", self.Hostname,
                                     "-P", str(self.Port),
@@ -208,7 +209,8 @@ class uniformance():
                                     "-R", self._ReductionType,
                                     "-o", self._ReductionOffset
                                     ], shell=True, capture_output=True, text=True)
-            dataframe_list.append(pd.read_xml(result.stdout))
+            datain.write(result.stdout)
+            dataframe_list.append(pd.read_xml(datain))
         return(dataframe_list)
         
         
