@@ -69,13 +69,19 @@ class uniformance():
             print("Connection to PHD failed, Check server details or try again")
             return(1) 
         
-    def add_tag(self, tagname):
+    def add_tag(self, tagname, unsafe=False):
         if not(isinstance(tagname, list)):
             tagname = [tagname]
+
+        
             
         for tag in tagname:
             if tag in self._Taglist:
                 print(tag+' Already exists in taglist')
+                continue
+            if unsafe == True:
+                self._Taglist.append(tag)
+                print(tag+" added to taglist")
                 continue
             text_trap = io.StringIO()
             with redirect_stdout(text_trap):
@@ -133,7 +139,7 @@ class uniformance():
         
         self._UseSampleFrequency = usesamplefrequency
         
-    def set_sampleType(self, sample_type):
+    def set_SampleType(self, sample_type):
         valid_sampling = ["Snapshot", "Average", "Resampled", "Raw", "InterpolatedRaw"]
         if sample_type in valid_sampling:
             self._SampleFrequencyType = sample_type
