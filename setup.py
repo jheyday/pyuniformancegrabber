@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='pyuniformancegrabber',
-      version='0.1',
+      version='0.2',
       description='Access honeywell phd via .netframework wrapper for PHDAPINET.DLL',
       url='https://github.com/jheyday/pyuniformancegrabber',
       author='jheyday',

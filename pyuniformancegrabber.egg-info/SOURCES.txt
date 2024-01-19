@@ -1,0 +1,11 @@
+MANIFEST.in
+setup.py
+pyuniformancegrabber/__init__.py
+pyuniformancegrabber/grabber.py
+pyuniformancegrabber/phdapinetinterface.exe
+pyuniformancegrabber.egg-info/PKG-INFO
+pyuniformancegrabber.egg-info/SOURCES.txt
+pyuniformancegrabber.egg-info/dependency_links.txt
+pyuniformancegrabber.egg-info/not-zip-safe
+pyuniformancegrabber.egg-info/requires.txt
+pyuniformancegrabber.egg-info/top_level.txt

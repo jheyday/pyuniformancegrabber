@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: pyuniformancegrabber
+Version: 0.2
+Summary: Access honeywell phd via .netframework wrapper for PHDAPINET.DLL
+Home-page: https://github.com/jheyday/pyuniformancegrabber
+Author: jheyday
+Author-email: not@anemail.com
+License: MIT
+Requires-Dist: pandas
+Requires-Dist: lxml

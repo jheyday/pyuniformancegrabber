@@ -199,24 +199,33 @@ class uniformance():
     def get_results(self):
         dataframe_list = []
         for tags in self._Taglist:
+            current_try = 0
+            max_retries = 3
+            
             datain = io.StringIO()
-            result = subprocess.run([self.exe_path, "getdata",
-                                    "-h", self.Hostname,
-                                    "-P", str(self.Port),
-                                    "-u", self.Username,
-                                    "-p", self.Password,
-                                    "-t", tags,
-                                    "-s", self._Starttime,
-                                    "-e", self._Endtime,
-                                    "-g", str(self._UseSampleFrequency),
-                                    "-f", str(self._SampleFrequency),
-                                    "-F", self._SampleFrequencyType,
-                                    "-r", str(self._ReductionFrequency),
-                                    "-R", self._ReductionType,
-                                    "-o", self._ReductionOffset
-                                    ], shell=True, capture_output=True, text=True)
-            datain.write(result.stdout)
-            dataframe_list.append(pd.read_xml(datain))
+            while current_try < max_retries:
+                try:
+                    result = subprocess.run([self.exe_path, "getdata",
+                                            "-h", self.Hostname,
+                                            "-P", str(self.Port),
+                                            "-u", self.Username,
+                                            "-p", self.Password,
+                                            "-t", tags,
+                                            "-s", self._Starttime,
+                                            "-e", self._Endtime,
+                                            "-g", str(self._UseSampleFrequency),
+                                            "-f", str(self._SampleFrequency),
+                                            "-F", self._SampleFrequencyType,
+                                            "-r", str(self._ReductionFrequency),
+                                            "-R", self._ReductionType,
+                                            "-o", self._ReductionOffset
+                                            ], shell=True, capture_output=True, text=True)
+                    datain.write(result.stdout)
+                    dataframe_list.append(pd.read_xml(datain))
+                    break
+                except Exception as E:
+                    print(f"Current Error: {E}")
+                current_try +=1
         return(dataframe_list)
         
         
