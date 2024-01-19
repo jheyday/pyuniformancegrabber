@@ -57,3 +57,9 @@ a.set_ReductionType('None')
 #get_results returns a list of dataframes, where each dataframe contains the results for one tag
 m= a.get_results()
 ```
+
+# Some Current Limitations
+
+This package current connects to 32-bit application for getting the PHD data, when acquring large amounts of data this can overflow.
+
+To get around this currently you can break your request into smaller requests in your python program. Maybe in a future release I'll address this in the package.
